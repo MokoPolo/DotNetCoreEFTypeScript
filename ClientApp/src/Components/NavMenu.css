@@ -34,7 +34,7 @@ export class NavMenu extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <LinkContainer to={'/'} exact>
+            <LinkContainer to={'/'} exact="true">
               <NavItem>
                 <Glyphicon glyph='home' /> Home
               </NavItem>
