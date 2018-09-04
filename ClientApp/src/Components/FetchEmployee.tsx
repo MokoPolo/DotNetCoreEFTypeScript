@@ -12,7 +12,7 @@ export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFet
         super(args);
         this.state = {
             empList: [{ employeeId: 1, name: "Jasmine" }, { employeeId: 2, name: "Justin" }],
-            loading: true
+            loading: false
         };
 
         // This binding is necessary to make "this" work in the callback 
