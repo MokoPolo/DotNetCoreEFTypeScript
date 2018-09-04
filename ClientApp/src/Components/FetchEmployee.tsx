@@ -10,13 +10,10 @@ interface IFetchEmployeeDataState {
 export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFetchEmployeeDataState> {
     constructor(...args: any[]) {
         super(args);
-        this.state = { empList: [], loading: true };
-
-        fetch('api/Employee/Index')
-            .then(response => response.json() as Promise<EmployeeData[]>)
-            .then(data => {
-                this.setState({ empList: data, loading: false });
-            });
+        this.state = {
+            empList: [{ employeeId: 1, name: "Jasmine" }, { employeeId: 2, name: "Justin" }],
+            loading: true
+        };
 
         // This binding is necessary to make "this" work in the callback 
         this.handleDelete = this.handleDelete.bind(this);
@@ -32,9 +29,6 @@ export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFet
         return <div>
             <h1>Employee Data</h1>
             <p>This component demonstrates fetching Employee data from the server.</p>
-            <p>
-                <Link to="/addemployee">Create New</Link>
-            </p>
             {contents}
         </div>;
     }
@@ -67,12 +61,8 @@ export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFet
         return <table className='table'>
             <thead>
                 <tr>
-                    <th>q</th>
                     <th>EmployeeId</th>
                     <th>Name</th>
-                    <th>Gender</th>
-                    <th>Department</th>
-                    <th>City</th>
                 </tr>
             </thead>
             <tbody>
@@ -81,9 +71,6 @@ export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFet
                         <td>q</td>
                         <td>{emp.employeeId}</td>
                         <td>{emp.name}</td>
-                        <td>{emp.gender}</td>
-                        <td>{emp.department}</td>
-                        <td>{emp.city}</td>
                         <td>edit/delete
                         </td>
                     </tr>
@@ -96,7 +83,4 @@ export class FetchEmployee extends React.Component<RouteComponentProps<{}>, IFet
 export class EmployeeData {
     public employeeId: number = 0;
     public name: string = "";
-    public gender: string = "";
-    public city: string = "";
-    public department: string = "";
 }

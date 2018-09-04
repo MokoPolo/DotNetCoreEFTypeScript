@@ -45,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\Components\AddEmployee.tsx" />
     <TypeScriptCompile Include="ClientApp\src\Components\FetchEmployee.tsx" />
     <TypeScriptCompile Include="ClientApp\src\Components\Home.tsx" />
     <TypeScriptCompile Include="ClientApp\src\Components\Layout.tsx" />
